@@ -16,7 +16,7 @@ add_executable(rvasm)
 
 find_package(FLEX REQUIRED)
 
-flex_target(lexer ./src/F.l F.cpp DEFINES_FILE ./incl/F.h)
+flex_target(lexer ./src/F.l ./F.cpp DEFINES_FILE ./F.h)
 
 include_directories(SYSTEM ./elfio/)
 
@@ -26,8 +26,8 @@ include_directories(
 )
 
 target_sources(rvasm PRIVATE
-  F.cpp ./incl/F.h
   ./rvasm.cpp
+  ./F.cpp ./F.h
   ./incl/lexer.hpp
   ./src/parser.cpp ./incl/parser.hpp
   ./src/preprocessor.cpp ./incl/preprocessor.hpp
