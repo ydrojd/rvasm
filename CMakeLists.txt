@@ -28,7 +28,7 @@ include_directories(
 target_sources(rvasm PRIVATE
   F.cpp ./incl/F.h
   ./rvasm.cpp
-  ./src/lexer.cpp ./incl/lexer.hpp
+  ./incl/lexer.hpp
   ./src/parser.cpp ./incl/parser.hpp
   ./src/preprocessor.cpp ./incl/preprocessor.hpp
   ./src/assembler.cpp ./incl/assembler.hpp
