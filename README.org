@@ -1,0 +1,27 @@
+#+STARTUP: indent
+#+STARTUP: hideblocks
+
+* Build Instructions
+** Requirements
++ flex
++ gcc
++ cmake
++ make
++ linux (other platforms are not tested)
+** Instructions
+#+BEGIN_SRC shell
+  cmake .
+  make -j
+#+END_SRC
+* Features
+** Supports
++ rv32im instruction-set (the rv32i base and M extension)
++ compatible with the gnu linker
++ basic macros
++ relaxation
++ local labels
++ pseudo instructions
+** Does not support
++ dynamic linking
++ 32bit address branches
++ CSR mnemonics
