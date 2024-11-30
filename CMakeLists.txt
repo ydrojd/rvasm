@@ -1,15 +1,14 @@
 cmake_minimum_required(VERSION 3.20)
 project(rvasm)
 
-option(USE_ASAN "Use address sanitizer if available" ON)
-option(USE_UBSAN "Use undefined behavior sanitizer if available" ON)
+option(USE_ASAN "Use address sanitizer if available" OFF)
+option(USE_UBSAN "Use undefined behavior sanitizer if available" OFF)
 option(USE_CLANGTIDY "Use clang-tidy if available" OFF)
 option(USE_CPPCHECK "Use Cppcheck if available" OFF)
 
 set(EXTRA_WARNINGS false)
-set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_BUILD_TYPE "Release")
 set(GNU_COMPATIBLE true)
-set(MAKE_TESTS false)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS true)
 
@@ -135,21 +134,3 @@ if (USE_CLANGTIDY)
                 )
     endif()
 endif(USE_CLANGTIDY)
-
-# download and populate Google Test from github
-include(FetchContent)
-
-FetchContent_Declare(
-        googletest
-        GIT_REPOSITORY https://github.com/google/googletest.git
-        GIT_TAG        release-1.12.1
-)
-
-# for Windows: prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-
-# FetchContent_MakeAvailable(googletest)
-
-if (MAKE_TESTS)
-add_subdirectory(tests)
-endif()
