@@ -21,6 +21,7 @@ flex_target(lexer ./src/F.l ./F.cpp DEFINES_FILE ./F.h)
 include_directories(SYSTEM ./elfio/)
 
 include_directories(
+  ${CMAKE_BINARY_DIR}
   ./incl/
   ./
 )
